@@ -10,7 +10,7 @@ CategoryRouter.get('/', controller.index);
 CategoryRouter.post('/', controller.store);
 CategoryRouter.get('/:id', controller.show);
 CategoryRouter.patch('/:id', controller.update);
-CategoryRouter.delete('/:id', controller.store);
+CategoryRouter.delete('/:id', controller.delete);
 
 CategoryRouter.use((err: any, _req: Request, res: Response, next: NextFunction) => {
   if (err instanceof yup.ValidationError) {

@@ -41,4 +41,12 @@ export class CategoryService {
       data: category,
     });
   };
+
+  delete = async (id: number) => {
+    return await this.repository.delete({
+      where: {
+        id,
+      },
+    });
+  };
 }

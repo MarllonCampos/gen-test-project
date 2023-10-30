@@ -71,7 +71,6 @@ export class CategoryController {
 
       const categoryModel = new CategoryModel(category);
 
-      console.log('a');
       const normalizedCategory = categoryModel.update();
 
       const updatedCategory = await this.service.update({
@@ -84,6 +83,29 @@ export class CategoryController {
       const outputCategory = categoryModel.view();
 
       return res.status(200).json({ message: 'Categoria atualizada com sucesso', data: outputCategory });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  delete = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = req.params;
+      const formattedId = Number(id);
+
+      if (isNaN(formattedId)) throw DefaultErrors.IdMustBeANumber();
+
+      const categoryExists = await this.service.show(Number(id));
+      if (!categoryExists) throw CategoryErrors.CategoryNotFound();
+
+      const category = req.body;
+      if (Object.keys(category).length === 0) throw CategoryErrors.NoFieldsToUpdate();
+
+      const categoryModel = new CategoryModel(category);
+
+      await this.service.delete(formattedId);
+
+      return res.status(201).json({ message: 'Categoria deletada com sucesso' });
     } catch (error) {
       next(error);
     }
