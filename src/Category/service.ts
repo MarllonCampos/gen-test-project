@@ -8,10 +8,10 @@ interface Update {
 }
 
 export class CategoryService {
-  private repository: Prisma.CategoryDelegate<DefaultArgs>;
+  private repository: Prisma.CategoriaDelegate<DefaultArgs>;
   constructor() {
     const prisma = new PrismaClient();
-    this.repository = prisma.category;
+    this.repository = prisma.categoria;
   }
   index = async () => {
     return await this.repository.findMany({

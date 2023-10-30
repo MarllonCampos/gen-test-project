@@ -2,11 +2,11 @@ import * as yup from 'yup';
 
 export interface CategoryInterface {
   id?: number;
-  name: string;
+  nome: string;
 }
 
 export interface CategoryInputInterface {
-  name: string;
+  nome: string;
 }
 export class CategoryModel {
   private _category: any;
@@ -17,14 +17,14 @@ export class CategoryModel {
   };
 
   private createCategorySchema = yup.object().shape({
-    name: yup
+    nome: yup
       .string()
-      .min(3, 'O campo de nome [name] deve ter no mínimo 3 caracteres')
-      .required('O campo de nome [name] deve ter no mínimo 3 caracteres'),
+      .min(3, 'O campo de nome [nome] deve ter no mínimo 3 caracteres')
+      .required('O campo de nome [nome] deve ter no mínimo 3 caracteres'),
   });
 
   private viewCategorySchema = yup.object().shape({
-    name: yup.string(),
+    nome: yup.string(),
     id: yup.number(),
   });
 
