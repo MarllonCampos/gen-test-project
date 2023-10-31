@@ -4,7 +4,7 @@ import DefaultErrors from './DefaultErrors';
 
 export const router = Router();
 
-router.use('/categories', CategoryRouter);
+router.use('/categorias', CategoryRouter);
 
 router.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof DefaultErrors) {

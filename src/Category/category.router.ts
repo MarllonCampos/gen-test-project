@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import { Router, Request, NextFunction, Response } from 'express';
 import { CategoryController } from './controller';
-import { CategoryErrors } from '../error';
+import { CategoryErrors } from './error';
 
 export const CategoryRouter = Router();
 const controller = new CategoryController();

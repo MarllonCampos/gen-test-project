@@ -1,4 +1,4 @@
-import DefaultErrors, { ApplicationErrorConstructor } from './DefaultErrors';
+import DefaultErrors, { ApplicationErrorConstructor } from '../DefaultErrors';
 
 export class CategoryErrors extends DefaultErrors {
   constructor({ message, errors = [], status = 400 }: ApplicationErrorConstructor) {

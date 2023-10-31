@@ -2,7 +2,7 @@ import DefaultErrors from '../DefaultErrors';
 import { NextFunction, Request, Response } from 'express';
 import { CategoryService } from './service';
 import { CategoryModel } from './model';
-import { CategoryErrors } from '../error';
+import { CategoryErrors } from './error';
 
 export class CategoryController {
   private service: CategoryService;
@@ -101,11 +101,9 @@ export class CategoryController {
       const category = req.body;
       if (Object.keys(category).length === 0) throw CategoryErrors.NoFieldsToUpdate();
 
-      const categoryModel = new CategoryModel(category);
-
       await this.service.delete(formattedId);
 
-      return res.status(201).json({ message: 'Categoria deletada com sucesso' });
+      return res.status(204).json({ message: 'Categoria deletada com sucesso' });
     } catch (error) {
       next(error);
     }
