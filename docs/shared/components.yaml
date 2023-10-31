@@ -11,4 +11,4 @@ components:
           type: array
           items:
             type: string
-          example: ['O campo de nome [name] não deve estar vazio']
+          example: ['O campo de nome [nome] não deve estar vazio']
