@@ -1,4 +1,6 @@
 import express, { Response } from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpecs from './swagger';
 import { configDotenv } from 'dotenv';
 import { router } from './routes';
 configDotenv();
@@ -14,6 +16,15 @@ app.get('/', (_req, res: Response) => {
 
 app.use(router);
 
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpecs, {
+    swaggerOptions: {
+      docExpansion: 'none',
+    },
+  })
+);
 app.listen(RUNNING_PORT, () => {
   console.log(`Server Working on PORT: ${RUNNING_PORT}`);
 });
