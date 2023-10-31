@@ -1,0 +1,170 @@
+openapi: 3.1.0
+tags:
+  - name: Produtos
+    description: Operações relacionadas ao recurso de Produtos
+
+paths:
+  /produtos:
+    get:
+      summary: Lista todos as produtos.
+      tags:
+        - Produtos
+      responses:
+        200:
+          description: Sucesso. Retorna a lista de Produtos.
+          content:
+            application/json:
+              example:
+                message: Produtos encontrados com sucesso
+                data:
+                  - id: 1
+                    nome: Mouse
+                    descricao: Mouse de escritório
+                    valor: 49.32,
+                    idCategoria: 3
+    post:
+      summary: Cria um novo produto.
+      tags:
+        - Produtos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                descricao:
+                  type: string
+                valor:
+                  type: number
+                idCategoria:
+                  type: number
+      responses:
+        201:
+          description: Sucesso. Retorna os detalhes da categoria criada.
+          content:
+            application/json:
+              example:
+                message: Prodruto criado com sucesso
+                data:
+                  id: 1
+                  nome: Mouse
+                  descricao: Mouse de escritório
+                  valor: 49.32,
+                  idCategoria: 3
+
+        400:
+          description: Erro de validação dos dados.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+
+  /produtos/{id}:
+    get:
+      summary: Obtém um produto específica pelo ID.
+      tags:
+        - Produtos
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID da produto a ser obtido.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Sucesso. Retorna os detalhes do produto encontrado.
+          content:
+            application/json:
+              example:
+                message: Produto encontrado com sucesso
+                data:
+                  id: 1
+                  nome: Mouse
+                  descricao: Mouse de escritório
+                  valor: 49.32,
+                  idCategoria: 3
+        '404':
+          description: Produto não encontrada. Retorna uma mensagem de erro.
+          content:
+            application/json:
+              example:
+                message: O produto informado não foi encontrado
+    patch:
+      summary: Atualiza um produto específico pelo ID.
+      tags:
+        - Produtos
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID do produto a ser atualizado.
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                descricao:
+                  type: string
+                valor:
+                  type: number
+                idCategoria:
+                  type: number
+      responses:
+        '400':
+          description: Erro de validação. Retorna uma mensagem de erro.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        '200':
+          description: Sucesso. Retorna os detalhes do produto atualizado.
+          content:
+            application/json:
+              example:
+                message: Produto atualizado com sucesso
+                data:
+                  id: 1
+                  nome: Mouse
+                  descricao: Mouse de escritório
+                  valor: 49.32,
+                  idCategoria: 3
+        '404':
+          description: Produto não encontrado. Retorna uma mensagem de erro.
+          content:
+            application/json:
+              example:
+                message: O produto informado não foi encontrado
+    delete:
+      summary: Deleta um produto específico pelo ID.
+      tags:
+        - Produtos
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID do produto a ser deletado.
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Produto deletado com sucesso. Sem corpo de resposta.
+          content:
+            application/json:
+              example:
+                message: Produto deletado com sucesso
+        '404':
+          description: Produto não encontrado. Retorna uma mensagem de erro.
+          content:
+            application/json:
+              example:
+                message: O produto informado não foi encontrado
