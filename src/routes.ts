@@ -1,10 +1,13 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { CategoryRouter } from './Category/category.router';
 import DefaultErrors from './DefaultErrors';
+
+import { ProductsRouter } from './Products/products.router';
+import { CategoryRouter } from './Category/category.router';
 
 export const router = Router();
 
 router.use('/categorias', CategoryRouter);
+router.use('/produtos', ProductsRouter);
 
 router.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof DefaultErrors) {
