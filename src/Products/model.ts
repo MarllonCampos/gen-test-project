@@ -53,7 +53,6 @@ export class ProductsModel {
     .shape({
       nome: yup.string(),
       descricao: yup.string(),
-      id: yup.number(),
       valor: yup.number(),
       idCategoria: yup.number(),
     })

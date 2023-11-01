@@ -11,7 +11,7 @@ export class ProductsErrors extends DefaultErrors {
   }
 
   static ProductsNotFound(): ProductsErrors {
-    return new ProductsErrors({ message: 'O produto informado não foi encontrada', status: 404 });
+    return new ProductsErrors({ message: 'O produto informado não foi encontrado', status: 404 });
   }
 
   static ProductsMustContainsAtLeastOneField(): ProductsErrors {
