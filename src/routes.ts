@@ -3,11 +3,13 @@ import DefaultErrors from './DefaultErrors';
 
 import { ProductsRouter } from './Products/products.router';
 import { CategoryRouter } from './Category/category.router';
+import { InstallmentRouter } from './Installments/installments.router';
 
 export const router = Router();
 
 router.use('/categorias', CategoryRouter);
 router.use('/produtos', ProductsRouter);
+router.use('/parcelas', InstallmentRouter);
 
 router.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof DefaultErrors) {
