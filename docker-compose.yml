@@ -1,0 +1,51 @@
+version: '3.9'
+
+services: 
+  postgres:
+    image: 'postgres'
+    container_name: 'postgres'
+
+    hostname: postgres
+    env_file:
+      - .env
+    expose:
+      - ${POSTGRES_PORT}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      test:
+        ipv4_address: 192.168.160.10
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+   
+  server:
+    container_name: 'app'
+    depends_on:
+      - postgres
+    build: .
+    command: >
+      sh -c "if [ -z $MIGRATION_DONE ]; then
+              npm run prisma:deploy &&
+              export MIGRATION_DONE=true;
+             fi;
+             npm run start
+            "
+
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@192.168.160.10:5432/${POSTGRES_NAME}
+      - PORT=3000
+    ports:
+      - 3000:3000 
+    expose:
+      - 3000
+    restart: always
+    networks:
+      test:
+        ipv4_address: 192.168.160.8
+networks:
+  test:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.160.0/20
+          gateway: 192.168.160.1
