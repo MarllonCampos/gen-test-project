@@ -1,0 +1,41 @@
+openapi: 3.1.0
+tags:
+  - name: Parcelas
+    description: Operações relacionadas ao recurso de Parcelas
+
+paths:
+  /parcelas/{id}:
+    get:
+      summary: Obtém uma previsão de como será o valor total e o valor das parcelas.
+      tags:
+        - Parcelas
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID do produto para realizar a previsão.
+          schema:
+            type: integer
+        - in: query
+          name: parcelas
+          required: true
+          description: Quantidade de parcelas que devem ser feitas
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Sucesso. Retorna os detalhes da previsão das parcelas.
+          content:
+            application/json:
+              example:
+                message: Previsão realizada com sucesso
+                data:
+                  installments: 2
+                  installmentValue: R$ 53,78,
+                  totalValue: R$ 107,56
+        '404':
+          description: Produto não encontrado. Retorna uma mensagem de erro.
+          content:
+            application/json:
+              example:
+                message: O produto informado não foi encontrado
