@@ -1,0 +1,211 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.0 (Debian 16.0-1.pgdg120+1)
+-- Dumped by pg_dump version 16.0 (Debian 16.0-1.pgdg120+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: Categoria; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Categoria" (
+    id integer NOT NULL,
+    nome text NOT NULL,
+    juros double precision NOT NULL
+);
+
+
+ALTER TABLE public."Categoria" OWNER TO postgres;
+
+--
+-- Name: Categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Categoria_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public."Categoria_id_seq" OWNER TO postgres;
+
+--
+-- Name: Categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Categoria_id_seq" OWNED BY public."Categoria".id;
+
+
+--
+-- Name: Produtos; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Produtos" (
+    id integer NOT NULL,
+    nome text NOT NULL,
+    descricao text NOT NULL,
+    valor double precision NOT NULL,
+    "idCategoria" integer NOT NULL
+);
+
+
+ALTER TABLE public."Produtos" OWNER TO postgres;
+
+--
+-- Name: Produtos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public."Produtos_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public."Produtos_id_seq" OWNER TO postgres;
+
+--
+-- Name: Produtos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public."Produtos_id_seq" OWNED BY public."Produtos".id;
+
+
+--
+-- Name: _prisma_migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public._prisma_migrations (
+    id character varying(36) NOT NULL,
+    checksum character varying(64) NOT NULL,
+    finished_at timestamp with time zone,
+    migration_name character varying(255) NOT NULL,
+    logs text,
+    rolled_back_at timestamp with time zone,
+    started_at timestamp with time zone DEFAULT now() NOT NULL,
+    applied_steps_count integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public._prisma_migrations OWNER TO postgres;
+
+--
+-- Name: Categoria id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Categoria" ALTER COLUMN id SET DEFAULT nextval('public."Categoria_id_seq"'::regclass);
+
+
+--
+-- Name: Produtos id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Produtos" ALTER COLUMN id SET DEFAULT nextval('public."Produtos_id_seq"'::regclass);
+
+
+--
+-- Data for Name: Categoria; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Categoria" (id, nome, juros) FROM stdin;
+1	Automotivo	2.5
+2	Informática	5
+3	Móveis	1
+5	Mercado Livre	20.29
+\.
+
+
+--
+-- Data for Name: Produtos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Produtos" (id, nome, descricao, valor, "idCategoria") FROM stdin;
+1	Mouse	Mouse de escritório preto que é preto e é um mouse	49.32	2
+2	Teclado	Teclado de escritório verde que é verde e é um teclado	100	2
+3	Livro Tormenta	Livro de Tormenta20 Para testes	215	5
+\.
+
+
+--
+-- Data for Name: _prisma_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public._prisma_migrations (id, checksum, finished_at, migration_name, logs, rolled_back_at, started_at, applied_steps_count) FROM stdin;
+5ef05c8a-e583-440e-9d65-f486559a0bc1	189b91525a8c6819182d7e99bc600aa5928c3e4aebae4f7554c91c6a07f038f6	2023-11-01 17:42:52.870196+00	20231030185158_create_category_model	\N	\N	2023-11-01 17:42:52.840857+00	1
+310aff1a-1ec5-4a06-aae5-ba58235049f1	e54670ebcf30603194067966c2a13d270f1ef220f8b89cf0e8e2d0e9f8cebbb9	2023-11-01 17:42:52.905067+00	20231030214720_change_column_and_table_name_for_category	\N	\N	2023-11-01 17:42:52.874497+00	1
+d840dce3-5911-4c0d-bf3a-61c8226cc629	54b1450804b101f2fb2c0be1a8eaa2edec10d5d65f6c96b480302edd59594c22	2023-11-01 17:42:52.937027+00	20231031173503_create_products_table_and_relations	\N	\N	2023-11-01 17:42:52.908952+00	1
+f212f3ac-49fa-4e9b-b6e8-95b1dfaac800	0c436cf5b888da9101ae036a4e6f5b373c190cfe2c2b96ef0e9dc145bef12472	2023-11-01 17:42:53.759423+00	20231101174253_create_interest_column_on_category	\N	\N	2023-11-01 17:42:53.743892+00	1
+\.
+
+
+--
+-- Name: Categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Categoria_id_seq"', 5, true);
+
+
+--
+-- Name: Produtos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public."Produtos_id_seq"', 3, true);
+
+
+--
+-- Name: Categoria Categoria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Categoria"
+    ADD CONSTRAINT "Categoria_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Produtos Produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Produtos"
+    ADD CONSTRAINT "Produtos_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: _prisma_migrations _prisma_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public._prisma_migrations
+    ADD CONSTRAINT _prisma_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: Produtos Produtos_idCategoria_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Produtos"
+    ADD CONSTRAINT "Produtos_idCategoria_fkey" FOREIGN KEY ("idCategoria") REFERENCES public."Categoria"(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

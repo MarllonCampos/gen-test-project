@@ -9,9 +9,9 @@ services:
     env_file:
       - .env
     expose:
-      - ${POSTGRES_PORT}
+      - 5444
     ports:
-      - ${POSTGRES_PORT}:5432
+      - 5444:5432
     networks:
       test:
         ipv4_address: 192.168.160.10
