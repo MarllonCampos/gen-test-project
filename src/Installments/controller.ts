@@ -35,7 +35,7 @@ export class InstallmentController {
       this.service.installment = installmentModel.parcelas;
       this.service.interestRate = category.juros;
       this.service.value = product.valor;
-      return res.status(200).send({ message: 'Previsão realizada com sucesso', ...this.service.returnObject });
+      return res.status(200).send({ message: 'Previsão realizada com sucesso', data: this.service.returnObject });
     } catch (error) {
       next(error);
     }
