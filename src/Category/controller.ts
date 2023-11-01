@@ -98,12 +98,9 @@ export class CategoryController {
       const categoryExists = await this.service.show(Number(id));
       if (!categoryExists) throw CategoryErrors.CategoryNotFound();
 
-      const category = req.body;
-      if (Object.keys(category).length === 0) throw CategoryErrors.NoFieldsToUpdate();
-
       await this.service.delete(formattedId);
 
-      return res.status(204).json({ message: 'Categoria deletada com sucesso' });
+      return res.sendStatus(204);
     } catch (error) {
       next(error);
     }

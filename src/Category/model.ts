@@ -3,10 +3,12 @@ import * as yup from 'yup';
 export interface CategoryInterface {
   id?: number;
   nome: string;
+  juros: number;
 }
 
 export interface CategoryInputInterface {
   nome: string;
+  juros: number;
 }
 export class CategoryModel {
   private _category: any;
@@ -21,11 +23,19 @@ export class CategoryModel {
       .string()
       .min(3, 'O campo de nome [nome] deve ter no mínimo 3 caracteres')
       .required('O campo de nome [nome] deve ter no mínimo 3 caracteres'),
+
+    juros: yup.number().required('O campo de nome [juros] é obrigatório'),
   });
 
   private viewCategorySchema = yup.object().shape({
     nome: yup.string(),
     id: yup.number(),
+    juros: yup.number(),
+  });
+
+  private updateCategorySchema = yup.object().shape({
+    nome: yup.string(),
+    juros: yup.number(),
   });
 
   constructor(category: any) {
@@ -51,8 +61,8 @@ export class CategoryModel {
   };
 
   update = () => {
-    const validateUpdatedCategory = this.createCategorySchema.validateSync(this._category, this._defaultYupOptions);
+    const validateUpdatedCategory = this.updateCategorySchema.validateSync(this._category, this._defaultYupOptions);
 
-    return validateUpdatedCategory;
+    return validateUpdatedCategory as CategoryInputInterface;
   };
 }

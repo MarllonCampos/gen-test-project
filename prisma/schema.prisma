@@ -13,6 +13,7 @@ datasource db {
 model Categoria {
   id       Int        @id @default(autoincrement())
   nome     String
+  juros    Float
   produtos Produtos[]
 }
 
