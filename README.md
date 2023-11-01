@@ -1,10 +1,9 @@
 # Teste Técnico - GEN
 
-[x] Validadores nas rotas
-[x] Teste unitário
-[x] Documentação
-[x] Dockerização
-[?] Alguma metodologia para definição e organização do seu código??
+- [x] Validadores nas rotas
+- [x] Teste unitário
+- [x] Documentação
+- [?] Alguma metodologia para definição e organização do seu código
 
 **Descrição do Projeto**
 
