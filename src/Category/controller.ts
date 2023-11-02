@@ -101,7 +101,10 @@ export class CategoryController {
       await this.service.delete(formattedId);
 
       return res.sendStatus(204);
-    } catch (error) {
+    } catch (error: any) {
+      if (error.code == 'P2003') next(CategoryErrors.CategoryHasChildrensCantDelete()); // ForeignConstraint
+
+      console.log(error);
       next(error);
     }
   };

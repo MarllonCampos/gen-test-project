@@ -78,6 +78,7 @@ paths:
                 data:
                   id: 3
                   nome: Informática
+                  juros: 5
         '404':
           description: Categoria não encontrada. Retorna uma mensagem de erro.
           content:
@@ -104,6 +105,8 @@ paths:
               properties:
                 nome:
                   type: string
+                juros:
+                  type: number
       responses:
         '400':
           description: Erro de validação. Retorna uma mensagem de erro.
@@ -120,6 +123,7 @@ paths:
                 data:
                   id: 3
                   nome: Informática
+                  juros: 2
         '404':
           description: Categoria não encontrada. Retorna uma mensagem de erro.
           content:
@@ -140,10 +144,7 @@ paths:
       responses:
         '204':
           description: Categoria deletada com sucesso. Sem corpo de resposta.
-          content:
-            application/json:
-              example:
-                message: Categoria deletada com sucesso
+
         '404':
           description: Categoria não encontrada. Retorna uma mensagem de erro.
           content:

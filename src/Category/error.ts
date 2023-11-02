@@ -12,4 +12,10 @@ export class CategoryErrors extends DefaultErrors {
   static CategoryNotFound(): CategoryErrors {
     return new CategoryErrors({ message: 'A categoria informada não foi encontrada', status: 404 });
   }
+  static CategoryHasChildrensCantDelete(): CategoryErrors {
+    return new CategoryErrors({
+      message: 'A categoria informada não pode ser deletada pois existem produtos relacionados a ela',
+      status: 400,
+    });
+  }
 }
