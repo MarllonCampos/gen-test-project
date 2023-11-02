@@ -1,0 +1,31 @@
+_id: req_2648d4c1ade34c2eabfadb213a58edbe
+type: Request
+parentId: fld_d99bbc7626934568a4b588ef63465369
+modified: 1698781071364
+created: 1698776624202
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}/1"
+name: Update Product
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"idCategoria": 3,
+    	"nome": "Mouse"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1697035344008.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

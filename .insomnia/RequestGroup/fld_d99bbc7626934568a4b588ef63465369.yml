@@ -1,0 +1,13 @@
+_id: fld_d99bbc7626934568a4b588ef63465369
+type: RequestGroup
+parentId: wrk_5ba6c2a20ebb4f8f8a8d8f9181b352a3
+modified: 1698776652667
+created: 1698776624173
+name: Products
+description: ""
+environment:
+  route: produtos
+environmentPropertyOrder:
+  "&":
+    - route
+metaSortKey: -1698085873147
