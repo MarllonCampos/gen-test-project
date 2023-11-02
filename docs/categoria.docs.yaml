@@ -22,6 +22,7 @@ paths:
                   - id: 2
                     nome: Móveis
                   - id: 3
+                    nome: Informática
     post:
       summary: Cria uma nova categoria.
       tags:
@@ -35,6 +36,8 @@ paths:
               properties:
                 nome:
                   type: string
+                nome:
+                  type: number
       responses:
         201:
           description: Sucesso. Retorna os detalhes da categoria criada.
