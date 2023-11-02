@@ -158,10 +158,6 @@ paths:
       responses:
         '204':
           description: Produto deletado com sucesso. Sem corpo de resposta.
-          content:
-            application/json:
-              example:
-                message: Produto deletado com sucesso
         '404':
           description: Produto não encontrado. Retorna uma mensagem de erro.
           content:

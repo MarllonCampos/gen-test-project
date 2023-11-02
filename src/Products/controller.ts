@@ -89,7 +89,7 @@ export class ProductsController {
       const normalizedProducts = productsModel.update();
       const { idCategoria } = normalizedProducts;
 
-      if (idCategoria) {
+      if (idCategoria != undefined) {
         const categoryExists = await this.categoryService.show(idCategoria);
         if (!categoryExists) throw CategoryErrors.CategoryNotFound();
       }
@@ -118,9 +118,6 @@ export class ProductsController {
 
       const ProductsExists = await this.service.show(Number(id));
       if (!ProductsExists) throw ProductsErrors.ProductsNotFound();
-
-      const Products = req.body;
-      if (Object.keys(Products).length === 0) throw ProductsErrors.NoFieldsToUpdate();
 
       await this.service.delete(formattedId);
 
