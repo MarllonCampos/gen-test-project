@@ -1,0 +1,31 @@
+_id: req_3862686e91a44276b126db7975286b86
+type: Request
+parentId: fld_e3485deaae684160b52897217802e43a
+modified: 1698869550243
+created: 1698695223238
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}"
+name: Create Category
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"nome": "Mercado Livre",
+    	"juros": "20.29"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1697588147135.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

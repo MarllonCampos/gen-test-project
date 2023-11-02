@@ -1,0 +1,13 @@
+_id: fld_e3485deaae684160b52897217802e43a
+type: RequestGroup
+parentId: wrk_5ba6c2a20ebb4f8f8a8d8f9181b352a3
+modified: 1698726456912
+created: 1698693741958
+name: Categories
+description: ""
+environment:
+  route: categorias
+environmentPropertyOrder:
+  "&":
+    - route
+metaSortKey: -1698693741958

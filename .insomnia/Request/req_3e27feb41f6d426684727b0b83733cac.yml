@@ -1,0 +1,28 @@
+_id: req_3e27feb41f6d426684727b0b83733cac
+type: Request
+parentId: fld_e2883520269e4b14840e49174baea6ba
+modified: 1698875204432
+created: 1698861251605
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}/2"
+name: Specific Product
+description: ""
+method: GET
+body: {}
+parameters:
+  - id: pair_a02f7434689c45c8b7435bf1cf466e3b
+    name: parcelas
+    value: "2"
+    description: ""
+    disabled: false
+headers:
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1698140950262.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

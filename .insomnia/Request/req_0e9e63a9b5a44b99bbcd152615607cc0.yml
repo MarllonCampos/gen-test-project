@@ -1,0 +1,30 @@
+_id: req_0e9e63a9b5a44b99bbcd152615607cc0
+type: Request
+parentId: fld_e3485deaae684160b52897217802e43a
+modified: 1698727501926
+created: 1698700498771
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}/7"
+name: Update Category
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"nome": "Informática"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1697035344008.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

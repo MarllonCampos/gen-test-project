@@ -1,10 +1,9 @@
 # Teste Técnico - GEN
 
-[x] Validadores nas rotas
-[x] Teste unitário
-[x] Documentação
-[x] Dockerização
-[?] Alguma metodologia para definição e organização do seu código??
+- [x] Validadores nas rotas
+- [x] Teste unitário
+- [x] Documentação
+- [?] Alguma metodologia para definição e organização do seu código
 
 **Descrição do Projeto**
 
@@ -40,6 +39,13 @@ Um container contendo uma imagem do servidor e uma imagem do postgres devera ser
   POSTGRES_HOST=localhost
   DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_NAME}
 ```
+**Caso seja a primeira vez que o projeto estará rodando é necessário rodar o comando**
+```
+ npm run prisma:deploy
+```
+
+Para que o banco de dados crie as devidas tabelas
+
 **Executando o Servidor Localmente para Desenvolvimento**
 ```
   npm run dev
@@ -53,3 +59,4 @@ Um container contendo uma imagem do servidor e uma imagem do postgres devera ser
   - Node.js (Versão Mínima: v18.16.0)
   - Postgres, necessário estar rodando
 
+## O repositório contem também um pequeno DUMP do meu banco de dados utilizado para testes, se necessário poderá ser usado também para seus testes.

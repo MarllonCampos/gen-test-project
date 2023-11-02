@@ -1,0 +1,27 @@
+_id: req_d04af3b68c364e19b012047b7fb501b0
+type: Request
+parentId: fld_e3485deaae684160b52897217802e43a
+modified: 1698861754692
+created: 1698701164029
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}/4"
+name: Delete Category
+description: ""
+method: DELETE
+body:
+  mimeType: application/json
+  text: ""
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1696758942444.625
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

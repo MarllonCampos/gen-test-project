@@ -1,0 +1,13 @@
+_id: fld_e2883520269e4b14840e49174baea6ba
+type: RequestGroup
+parentId: wrk_5ba6c2a20ebb4f8f8a8d8f9181b352a3
+modified: 1698861385848
+created: 1698861251591
+name: Installments
+description: ""
+environment:
+  route: parcelas
+environmentPropertyOrder:
+  "&":
+    - route
+metaSortKey: -1697781938741.5

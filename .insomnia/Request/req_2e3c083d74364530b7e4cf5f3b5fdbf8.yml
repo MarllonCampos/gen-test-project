@@ -1,0 +1,33 @@
+_id: req_2e3c083d74364530b7e4cf5f3b5fdbf8
+type: Request
+parentId: fld_d99bbc7626934568a4b588ef63465369
+modified: 1698869576886
+created: 1698776624186
+url: "{{ _.base_url }}{{ _.port }}{{ _.route }}"
+name: Create Product
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"nome": "Livro Tormenta",
+      "descricao": "Livro de Tormenta20 Para testes",
+      "valor": 215,
+      "idCategoria": 5
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: insomnia/2023.5.8
+authentication: {}
+metaSortKey: -1697588147135.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
